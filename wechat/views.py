@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 from django_pro.settings import DATABASES
+import os
 
 
 def index(request):
@@ -16,6 +17,7 @@ def index(request):
                 'PORT': os.getenv('MYSQL_SERVICE_PORT'),
 
             }
-    except:
+    except Exception as error:
+        print(error)
         DATABASES = {'ENGINE': 'django.db.backends.mysql',}
     return render(request,'wechat/index.html',{'databases':DATABASES})
