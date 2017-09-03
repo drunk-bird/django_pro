@@ -7,7 +7,7 @@ from django_pro.settings import DATABASES
 
 def index(request):
     try:
-        a = {
+        DATABASES = {
                 'ENGINE': 'django.db.backends.mysql',
                 'NAME': os.getenv('MYSQL_DATABASE'),
                 'USER': os.getenv('MYSQL_USER'),
@@ -17,5 +17,5 @@ def index(request):
 
             }
     except:
-        a = {'ENGINE': 'django.db.backends.mysql',}
+        DATABASES = {'ENGINE': 'django.db.backends.mysql',}
     return render(request,'wechat/index.html',{'databases':DATABASES})
