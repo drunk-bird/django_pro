@@ -92,8 +92,8 @@ DATABASES = {
 #         'PORT': os.getenv('MYSQL_SERVICE_PORT'),
 #
 #     }
-
-}
+#
+# }
 
 
 # Password validation
