@@ -6,6 +6,9 @@
 </head>
 <body>
     <h1>hello world!</h1>
+    {% for k,w in database.default.items %}
+        <h3>{{ k }}:{{ w }}</h3>
+    {% endfor %}
 
 </body>
 </html>
