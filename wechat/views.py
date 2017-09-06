@@ -1,13 +1,9 @@
 from django.shortcuts import render,HttpResponse
-from wechat import models
+from wechat import models,config
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
 
-conf = WechatConf(
-    token='weixin',
-    appid='wx2b33887e83cbbb1c',
-)
-
+conf = WechatConf(**config.WECHATCONF)
 wechat_obj = WechatBasic(conf=conf)
 
 
@@ -30,6 +26,6 @@ def auth(request):
         if wechat_obj.check_signature(signature, timestamp, nonce):
             return HttpResponse(echostr)
         else:
-            return HttpResponse('<h1>%s<h1>'%wechat_obj.check_signature(signature, timestamp, nonce))
+            return HttpResponse('<h1>%s<h1>'%conf.token)
 
 
