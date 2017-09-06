@@ -24,8 +24,8 @@ def auth(request):
         body_test = request.body
         wechat_obj.parse_data(body_test)
         if isinstance(wechat.message, TextMessage):
-            content = wechat.message.content
-            wechat_obj.response_text(content)
+            content = wechat_obj.message.content
+            wechat_obj.response_text(content, escape=False)
 
 
 
