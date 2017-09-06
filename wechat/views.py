@@ -3,19 +3,12 @@ from wechat import models,config
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
 
-conf = WechatConf(**config.WECHATCONF)
-wechat_obj = WechatBasic(conf=conf)
 
 
 # Create your views here.
 
-
-
-def index(request):
-    models.UserInfo.objects.create(name='arnol',password='123')
-    DATABASES = models.UserInfo.objects.first()
-    return render(request,'wechat/index.html',{'databases':DATABASES})
-
+conf = WechatConf(**config.WECHATCONF)
+wechat_obj = WechatBasic(conf=conf)
 
 def auth(request):
     if request.method=='GET':
@@ -27,5 +20,18 @@ def auth(request):
             return HttpResponse(echostr)
         else:
             return HttpResponse('<h1>%s<h1>'%conf.token)
+    if request.method=='POST':
+        body_test = request.body
+        wechat_obj.parse_data(data)
+        if isinstance(wechat.message, TextMessage):
+            content = wechat.message.content
+            wechat_obj.response_text(content)
 
+
+
+
+def index(request):
+    models.UserInfo.objects.create(name='arnol',password='123')
+    DATABASES = models.UserInfo.objects.first()
+    return render(request,'wechat/index.html',{'databases':DATABASES})
 
