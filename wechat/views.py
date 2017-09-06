@@ -7,6 +7,7 @@ conf = WechatConf(
     token='weixin',
     appid='wx2b33887e83cbbb1c',
 )
+
 wechat_obj = WechatBasic(conf=conf)
 
 
@@ -28,5 +29,7 @@ def auth(request):
         echostr = request.GET.get('echostr')
         if wechat_obj.check_signature(signature, timestamp, nonce):
             return HttpResponse(echostr)
+        else:
+            return HttpResponse('<h1>error<h1>')
 
 
