@@ -30,6 +30,6 @@ def auth(request):
         if wechat_obj.check_signature(signature, timestamp, nonce):
             return HttpResponse(echostr)
         else:
-            return HttpResponse('<h1>error<h1>')
+            return HttpResponse('<h1>%s<h1>'%wechat_obj.check_signature(signature, timestamp, nonce))
 
 
