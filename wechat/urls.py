@@ -4,7 +4,7 @@ from wechat import views
 
 
 urlpatterns = [
-    url(r'^index/', views.index),
-    url(r'^auth/', views.index),
+    url(r'^$', views.index),
+    url(r'^auth/', views.auth),
 
 ]
