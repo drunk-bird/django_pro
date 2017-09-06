@@ -26,7 +26,11 @@ def auth(request):
         if isinstance(wechat_obj.message, TextMessage):
             content = wechat_obj.message.content
             response_test = wechat_obj.response_text(content, escape=False)
-            return HttpResponse(response_test)
+            return HttpResponse(response_test,content_type="application/xml")
+        else:
+            content ='error'
+            response_test = wechat_obj.response_text(content, escape=False)
+            return HttpResponse(response_test, content_type="application/xml")
 
 
 
