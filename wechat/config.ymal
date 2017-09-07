@@ -3,4 +3,11 @@ wechatconfig:
   appid : wx2b33887e83cbbb1c
   encrypt_mode : normal
 
-welcome_text : "Hi，我是星喵酱，感谢你的关注![愉快]\n\n内容分享：围绕趣味内容、资源分享和个人感悟\n\n<a href='https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5ODAwODg1OA==&scene=124#wechat_redirect'>☞之前你错过的所有干货</a >\n<a href='http://www.baidu.com'>☞第一次关注点击来报个到！</a >"
+welcome_text : |
+ Hi，我是星喵酱，感谢你的关注!
+
+ 内容分享：围绕趣味内容、资源分享和个人感悟
+
+ <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5ODAwODg1OA==&scene=124#wechat_redirect">☞之前你错过的所有干货</a>
+
+ <a href="http://www.baidu.com">☞第一次关注点击来报个到！</a>
