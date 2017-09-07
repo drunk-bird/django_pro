@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from wechat import models,
+from wechat import models
 from wechat_sdk import WechatConf
 from wechat.modules.handle import Wechat_handle
 from wechat.modules.config_handle import load_conf
