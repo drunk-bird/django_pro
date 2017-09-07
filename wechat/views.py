@@ -3,24 +3,28 @@ from wechat import models,config
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
 from wechat_sdk.messages import TextMessage
+from wechat.modules.handle import wechat_handle
 
 
 
 # Create your views here.
 
-conf = WechatConf(**config.WECHATCONF)
-wechat_obj = WechatBasic(conf=conf)
+
 
 def auth(request):
+    conf = WechatConf(**config.WECHATCONF)
+    wechat_obj = Wechat_handle(conf=conf)
+
     if request.method=='GET':
-        signature = request.GET.get('signature')
-        timestamp = request.GET.get('timestamp')
-        nonce = request.GET.get('nonce')
-        echostr = request.GET.get('echostr')
-        if wechat_obj.check_signature(signature, timestamp, nonce):
-            return HttpResponse(echostr)
-        else:
-            return HttpResponse('<h1>%s<h1>'%conf.token)
+        return HttpResponse(wechat_obj.get(request))
+        # signature = request.GET.get('signature')
+        # timestamp = request.GET.get('timestamp')
+        # nonce = request.GET.get('nonce')
+        # echostr = request.GET.get('echostr')
+        # if wechat_obj.check_signature(signature, timestamp, nonce):
+        #     return HttpResponse(echostr)
+        # else:
+        #     return HttpResponse('<h1>%s<h1>'%conf.token)
     if request.method=='POST':
         body_test = request.body
         wechat_obj.parse_data(body_test)
