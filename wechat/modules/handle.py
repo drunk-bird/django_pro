@@ -3,7 +3,7 @@ from wechat_sdk import WechatBasic
 from wechat_sdk.messages import TextMessage
 
 
-class wechat_handle(WechatBasic):
+class Wechat_handle(WechatBasic):
     def __init__(self,conf):
         super(wechat_handle,self).__init__(conf=conf)
 

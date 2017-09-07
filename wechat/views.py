@@ -3,7 +3,7 @@ from wechat import models,config
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
 from wechat_sdk.messages import TextMessage
-from wechat.modules.handle import wechat_handle
+from wechat.modules.handle import Wechat_handle
 
 
 
