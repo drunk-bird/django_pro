@@ -1,6 +1,4 @@
-from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
-from wechat_sdk.messages import TextMessage
 
 
 class Wechat_handle(WechatBasic):
@@ -52,7 +50,9 @@ class Wechat_handle(WechatBasic):
         pass
 
     def subscribe_resp(self,message):
-        pass
+        content = "感谢你的关注"
+        return self.response_text(content)
+
 
     def error_resp(self,message):
         content = 'wrong send type'

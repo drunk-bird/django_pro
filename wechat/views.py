@@ -1,8 +1,6 @@
 from django.shortcuts import render,HttpResponse
 from wechat import models,config
 from wechat_sdk import WechatConf
-from wechat_sdk import WechatBasic
-from wechat_sdk.messages import TextMessage
 from wechat.modules.handle import Wechat_handle
 
 
@@ -20,9 +18,6 @@ def auth(request):
 
     if request.method=='POST':
         return HttpResponse(wechat_obj.post(request))
-
-
-
 
 
 
