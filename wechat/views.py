@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse
 from wechat import models,config
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
+from wechat_sdk.messages import TextMessage
 
 
 
@@ -23,8 +24,7 @@ def auth(request):
     if request.method=='POST':
         body_test = request.body
         wechat_obj.parse_data(body_test)
-        message = wechat_obj.get_message()
-        if isinstance(message,TextMessage):
+        if isinstance(wechat_obj.message,TextMessage):
             content = wechat_obj.message.content
             response_test = wechat_obj.response_text(content, escape=False)
             return HttpResponse(response_test,content_type="application/xml")
