@@ -17,26 +17,12 @@ def auth(request):
 
     if request.method=='GET':
         return HttpResponse(wechat_obj.get(request))
-        # signature = request.GET.get('signature')
-        # timestamp = request.GET.get('timestamp')
-        # nonce = request.GET.get('nonce')
-        # echostr = request.GET.get('echostr')
-        # if wechat_obj.check_signature(signature, timestamp, nonce):
-        #     return HttpResponse(echostr)
-        # else:
-        #     return HttpResponse('<h1>%s<h1>'%conf.token)
+
     if request.method=='POST':
-        body_test = request.body
-        wechat_obj.parse_data(body_test)
-        if isinstance(wechat_obj.message,TextMessage):
-            wechat_obj._WechatBasic__message.source = 'oGrbujnu9Jh6m09VFITyHZMOBNm8'
-            content = "target openid:%s \n source openid:%s"%(wechat_obj.message.target,wechat_obj.message.source)
-            response_test = wechat_obj.response_text(content, escape=False)
-            return HttpResponse(response_test,content_type="application/xml")
-        else:
-            content ='error'
-            response_test = wechat_obj.response_text(content, escape=False)
-            return HttpResponse(response_test, content_type="application/xml")
+        return HttpResponse(wechat_obj.post(request))
+
+
+
 
 
 

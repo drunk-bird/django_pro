@@ -21,11 +21,15 @@ class Sub_class(Father):
         super(Sub_class,self).__init__()
 
     def get(self):
-        print(self.get_name())
+        try:
+            getattr(self,'get_name1')()
+        except AttributeError :
+            print('error func name')
+        # print(self.get_name())
 
 
-a = Sub_class('sub_message','sub_test')
-
-print(a.get())
+# a = Sub_class('sub_message','sub_test')
+#
+# print(a.get())
 
 
