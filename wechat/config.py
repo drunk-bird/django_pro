@@ -6,8 +6,13 @@ WECHATCONF = {  'token':'weixin',
 
 WELCOME_TEXT = "感谢关注[愉快]\n我是星喵大人[调皮]\n\n"
 
-# from yaml import load
+# from yaml import load,dump
 #
-# f = open('config.ymal',encoding='utf-8')
+# f = open('config1.ymal',encoding='utf-8')
 # b = load(f)
-# print(b['welcome_text'])
+# print(b)
+#
+# w = open('config.ymal','w' ,encoding = 'utf-8')
+# dump(b,w,allow_unicode = True)
+#
+#

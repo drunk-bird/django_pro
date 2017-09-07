@@ -30,7 +30,7 @@ class Wechat_handle(WechatBasic):
 
     def text_resp(self,message):
         content = "target openid:%s \n source openid:%s" % (message.target,message.source)
-
+        content = self.resp_config['welcome_text']
         return self.response_text(content)
 
 
