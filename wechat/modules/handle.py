@@ -5,7 +5,7 @@ from wechat_sdk.messages import TextMessage
 
 class Wechat_handle(WechatBasic):
     def __init__(self,conf):
-        super(wechat_handle,self).__init__(conf=conf)
+        super(Wechat_handle,self).__init__(conf=conf)
 
 
     def get(self,request):
