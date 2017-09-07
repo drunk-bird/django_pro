@@ -8,5 +8,3 @@ def load_conf(conf_key = None):
     f.close()
     return conf[conf_key] if conf_key else conf
 
-#
-# print(load_conf('welcome_text'))

@@ -4,7 +4,7 @@ from wechat.modules.config_handle import load_conf
 class Wechat_handle(WechatBasic):
     def __init__(self,conf):
         super(Wechat_handle,self).__init__(conf=conf)
-
+        self.resp_config = load_conf()
 
     def get(self,request):
         signature = request.GET.get('signature')
@@ -30,10 +30,7 @@ class Wechat_handle(WechatBasic):
 
     def text_resp(self,message):
         content = "target openid:%s \n source openid:%s" % (message.target,message.source)
-        try:
-            content = load_conf('welcome_text')
-        except Exception as a:
-            content = a
+
         return self.response_text(content)
 
 
@@ -54,7 +51,7 @@ class Wechat_handle(WechatBasic):
         pass
 
     def subscribe_resp(self,message):
-        content = "感谢你的关注"
+        content = self.resp_config['welcome_text']
         return self.response_text(content)
 
     def unsubscribe_resp(self,message):

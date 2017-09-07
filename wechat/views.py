@@ -1,7 +1,8 @@
 from django.shortcuts import render,HttpResponse
-from wechat import models,config
+from wechat import models,
 from wechat_sdk import WechatConf
 from wechat.modules.handle import Wechat_handle
+from wechat.modules.config_handle import load_conf
 
 
 
@@ -10,7 +11,7 @@ from wechat.modules.handle import Wechat_handle
 
 
 def auth(request):
-    conf = WechatConf(**config.WECHATCONF)
+    conf = WechatConf(**load_conf('wechatconfig'))
     wechat_obj = Wechat_handle(conf=conf)
 
     if request.method=='GET':
