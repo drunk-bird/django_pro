@@ -25,7 +25,7 @@ def auth(request):
         body_test = request.body
         wechat_obj.parse_data(body_test)
         if isinstance(wechat_obj.message,TextMessage):
-            content = str(wechat_obj._WechatBasic__message)
+            content = str(wechat_obj._WechatBasic__message.source)
             # content = "target openid:%s \n source openid:%s"%(wechat_obj.message.target,wechat_obj.message.source)
             response_test = wechat_obj.response_text(content, escape=False)
             return HttpResponse(response_test,content_type="application/xml")
